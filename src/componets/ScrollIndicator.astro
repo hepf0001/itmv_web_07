@@ -1,0 +1,76 @@
+---
+
+---
+
+<script>
+  // When the user scrolls the page, execute myFunction
+  window.onscroll = function () {
+    myFunction();
+  };
+
+  function myFunction() {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.height = scrolled + "%";
+  }
+</script>
+
+<div class="header">
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+</div>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 2%;
+    z-index: 1;
+    min-height: 100%;
+    background-color: #f2f7f9;
+  }
+
+  /* The progress container (grey background) */
+  .progress-container {
+    height: 100vh;
+    width: 15px;
+
+    background-image: url("/img/img_svg/rollebaand_mobil.svg");
+    background-image: cover;
+  }
+
+  /* The progress bar (scroll indicator) */
+  .progress-bar {
+    width: 15px;
+    background: #3e5c6dc1;
+    height: 0%;
+  }
+
+  @media (min-width: 800px) {
+    .header {
+      left: 10%;
+    }
+
+    /* The progress container (grey background) */
+    .progress-container {
+      width: 35px;
+
+      background-image: url("/img/img_svg/rollebaand.svg");
+      background-image: cover;
+    }
+
+    /* The progress bar (scroll indicator) */
+    .progress-bar {
+      width: 35px;
+    }
+
+    .progress-container {
+      width: 35px;
+    }
+  }
+</style>

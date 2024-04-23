@@ -1,0 +1,75 @@
+---
+import Footer from "../componets/Footer.astro";
+import Slider from "../componets/Slider.astro";
+import Broderi from "../componets/Broderi.astro";
+import Repair from "../componets/Repair.astro";
+import Processen from "../componets/Processen.astro";
+import Genbrug from "../componets/Genbrug.astro";
+import ScrollIndicator from "../componets/ScrollIndicator.astro";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/general.css" />
+    <title>I Tråd Med Verden</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+  </head>
+
+  <body>
+    <header>
+      <img src="/img/img_svg/logo_itmv.png" alt="logo i tråd med verden" />
+    </header>
+    <main>
+      <ScrollIndicator />
+
+      <Genbrug />
+      <div class="space"></div>
+      <Slider />
+      <div class="space"></div>
+      <Processen />
+      <div class="space"></div>
+      <Repair />
+      <div class="space"></div>
+      <Broderi />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  header img {
+    width: 20%;
+  }
+  .space {
+    height: 50px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  main {
+    padding: 0 20px 0 35px;
+  }
+  @media (min-width: 800px) {
+    main {
+      padding: 0;
+      max-width: 650px;
+      margin: auto;
+    }
+    .space {
+      height: 90px;
+    }
+  }
+</style>

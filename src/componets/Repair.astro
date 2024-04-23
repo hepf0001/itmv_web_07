@@ -1,0 +1,193 @@
+---
+
+---
+
+<div class="col">
+  <div class="tekst_col">
+    <div class="video_container">
+      <div class="pin_container"><div class="pin_sprite left"></div></div>
+      <div class="pin_container"><div class="pin_sprite right"></div></div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/UkWfnKbGLg4?si=BYpnJ10WfIA4B-1_"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <h1>Repair Service</h1>
+    <p>
+      Vidste du, at I Tråd Med Verden tilbyder en praktisk Repair Service,
+      direkte til din virksomhed? Vi brænder for at gøre det så nemt som muligt
+      for dine medarbejdere at deltage i bæredygtighedsarbejdet og socialt
+      ansvar, samtidig med at vi giver jeres tøj nyt liv og længere levetid.
+    </p>
+    <p>
+      Vores dygtige team, bestående af to erfarne syersker og en kreativ
+      designer, som står klar til at hjælpe med alt fra reparation og tilpasning
+      til fornyelse af tøj. Vi tilbyder en bred vifte af services, herunder
+      oplægning, lynlåsreparation, lappning af huller og broderi.
+    </p>
+    <p>
+      Vi bringer vores let tilgængelige service direkte til din virksomhed i
+      Københavnsområdet. Sammen kan vi finde den perfekte dag, der passer til
+      jeres kalender, hvor I kan aflevere tøjet om morgenen. Vi lægger stor vægt
+      på kvalitet og omhu i vores arbejde og stræber altid efter at fuldføre
+      reparationerne inden dagen er omme.
+    </p>
+    <div class="knapper">
+      <a href="https://www.itmv.dk/pages/repair-service" class="button"
+        >Repair Service</a
+      >
+
+      <a href="https://www.itmv.dk/pages/donation" class="button">Støt Os</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .video_container {
+    position: relative;
+  }
+
+  .pin_container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pin_sprite {
+    width: 27%;
+    height: 17%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: absolute;
+  }
+  .left {
+    background-image: url("/img/pin_left.svg");
+    top: -8%;
+    left: -5%;
+  }
+
+  .right {
+    background-image: url("/img/pin_right.svg");
+    bottom: 0;
+    right: -4%;
+  }
+
+  /********* Knapper **********/
+  .knapper {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3e5c6d;
+  }
+
+  a:hover {
+    color: #fff;
+    background-color: #3e5c6d;
+  }
+  .button {
+    padding: 7px 9px;
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 13px;
+    font-weight: bold;
+    width: 111px;
+    border-radius: 5px;
+    border-width: 4px;
+    border-style: solid;
+  }
+
+  @media (min-width: 800px) {
+    .left {
+      background-image: url("/img/img_svg/pin_left.svg");
+      top: 5%;
+      left: -2%;
+    }
+
+    .right {
+      background-image: url("/img/img_svg/pin_right.svg");
+      bottom: 5%;
+      right: -2%;
+    }
+    .button {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: bold;
+      width: 145px;
+      border-radius: 5px;
+      border-width: 4px;
+      border-style: solid;
+    }
+  }
+
+  a {
+    text-align: center;
+    color: #3e5c6d;
+    border-color: #3e5c6d;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  img,
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .video_container {
+    padding: 10px;
+  }
+
+  .col {
+    min-height: 100%;
+    position: relative;
+    background-image: url("/img/img_svg/sidste_stof_mobil.svg");
+    background-size: cover;
+    background-position: bottom;
+    padding-bottom: 120px;
+  }
+
+  .tekst_col {
+    z-index: 1;
+    height: 100%;
+  }
+
+  .tekst_col p,
+  h1 {
+    padding: 1px 10px;
+  }
+
+  @media (min-width: 800px) {
+    .col {
+      min-width: 100%;
+      min-height: 100%;
+      background-image: url("/img/img_svg/sidste_stof.svg");
+    }
+
+    .tekst_col p,
+    h1 {
+      padding: 1px 120px;
+    }
+
+    .video_container {
+      padding: 45px;
+    }
+  }
+</style>

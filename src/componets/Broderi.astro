@@ -1,0 +1,90 @@
+---
+
+---
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  let mm = gsap.matchMedia();
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".saks_container",
+      start: "top 90%",
+      end: "bottom end",
+      scrub: true,
+    },
+  });
+
+  tl.from(".saks_container", {
+    x: 200,
+    y: -100,
+    rotation: 30,
+  });
+  //her laver vi en media quiry så vi kan have sakea animationen så den er lille og animationen er mindre i mobil
+  mm.add("(min-width: 800px)", () => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".saks_container",
+        start: "top 90%",
+        end: "bottom end",
+        scrub: true,
+      },
+    });
+
+    tl.from(".saks_container", {
+      x: 500,
+      y: -200,
+      rotation: 30,
+    });
+  });
+</script>
+<div class="saks_container"><div class="saks"></div></div>
+
+<div class="col"></div>
+<img class="stof" src="/img/img_svg/stofrolle.svg" alt="Tøm stofrolle" />
+<img class="rolle" src="/img/img_svg/logo.svg" alt="Tøm stofrolle" />
+
+<style>
+  .col {
+    height: 50px;
+  }
+  .stof {
+    width: 100%;
+  }
+  .rolle {
+    width: 100%;
+  }
+  .saks_container {
+    width: 150px;
+    height: 75px;
+    position: relative;
+    bottom: 100px;
+    pointer-events: none;
+  }
+  .saks {
+    width: 100%;
+    height: 93%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    background-image: url("/img/img_svg/saks.svg");
+  }
+
+  @media (min-width: 800px) {
+    .col {
+      height: 30px;
+    }
+
+    .saks_container {
+      width: 300px;
+      height: 150px;
+      position: relative;
+      bottom: 100px;
+      pointer-events: none;
+    }
+  }
+</style>

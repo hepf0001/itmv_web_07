@@ -1,0 +1,224 @@
+---
+//https://codepen.io/sophgdn/pen/pxPmgr
+---
+
+<div class="reletiv">
+  <div class="pin_container"><div class="pin_sprite left"></div></div>
+  <div class="pin_container"><div class="pin_sprite right"></div></div>
+  <div id="window">
+    <div id="slide-container">
+      <div class="slides">
+        <!-- 1 image -->
+        <img class="slide" src="/img/img_slider/billede_1.webp" alt="billede1" />
+      </div>
+
+      <!-- 2 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_2.webp" alt="billede2" />
+      </div>
+
+      <!-- 3 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_3.webp" alt="billede3" />
+      </div>
+
+      <!-- 4 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_4.webp" alt="billede4" />
+      </div>
+
+      <!-- 5 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_5.webp" alt="billede5" />
+      </div>
+      <!-- 6 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_6.webp" alt="billede6" />
+      </div>
+      <!-- 7 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_7.webp" alt="billede7" />
+      </div>
+      <!-- 8 image -->
+      <div class="slides">
+        <img class="slide" src="/img/img_slider/billede_8.webp" alt="billede8" />
+      </div>
+
+      <a id="previous" class="arrow">&#10094</a>
+      <a id="next" class="arrow">&#10095</a>
+      <div id="text-bar">
+        <p id="place"></p>
+      </div>
+    </div>
+    <div id="dotsContainer"></div>
+  </div>
+</div>
+<script>
+  var index = 0;
+  var locations = ["Spring", "Summer", "Autumn", "Winter"];
+
+  var slides = document.getElementsByClassName("slides");
+  var nextArrow = document.getElementById("next");
+
+  var previousArrow = document.getElementById("previous");
+
+  var place = document.getElementById("place");
+
+  var dotsContainer = document.getElementById("dotsContainer");
+
+  var dotArray = document.getElementsByClassName("dots");
+
+  createDots();
+  showSlides(index);
+
+  function createDots() {
+    for (let i = 0; i < slides.length; i++) {
+      var dot = document.createElement("span");
+      dot.className = "dots";
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function showSlides(x) {
+    if (x > slides.length - 1) {
+      index = 0;
+    }
+    if (x < 0) {
+      index = slides.length - 1;
+    }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      dotArray[i].className = "dots";
+    }
+
+    slides[index].style.display = "block";
+    dotArray[index].className += " activeDot";
+    place.innerHTML = locations[index];
+  }
+
+  nextArrow.onclick = function () {
+    index += 1;
+    showSlides(index);
+  };
+
+  previousArrow.onclick = function () {
+    index -= 1;
+    showSlides(index);
+  };
+
+  dotArray[0].onclick = showSlides(1);
+</script>
+
+<style>
+  .reletiv {
+    position: relative;
+  }
+  .pin_container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pin_sprite {
+    width: 27%;
+    height: 17%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: absolute;
+  }
+  .left {
+    background-image: url("/img/pin_left.svg");
+    top: -8%;
+    left: -5%;
+  }
+
+  .right {
+    background-image: url("/img/pin_right.svg");
+    bottom: 0;
+    right: -4%;
+  }
+
+  @media (min-width: 800px) {
+    .left {
+      background-image: url("/img/img_svg/pin_left.svg");
+      top: -5%;
+      left: -10%;
+    }
+
+    .right {
+      background-image: url("/img/img_svg/pin_right.svg");
+      bottom: 0;
+      right: -10%;
+    }
+  }
+
+  :root {
+    --transparent-grey: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Width of carousel */
+  #window,
+  #slide-container {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Height of carousel */
+  #slide-container {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+  }
+
+  .slide {
+    width: 100%;
+  }
+
+  .arrow {
+    color: white;
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding: 100% 8px;
+    background-color: rgba(0, 0, 0, 0); /* Ændret til transparent baggrund */
+    transition: background-color 0.3s ease;
+    background-color: var(--transparent-grey);
+  }
+
+  /* Fjerner hover-effekten */
+  .arrow:hover {
+    cursor: pointer;
+    /* Fjern baggrundsfarven */
+  }
+
+  #next {
+    left: 100%;
+    transform: translate(-100%, -50%);
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  #previous {
+    border-radius: 8px 0px 0px 8px;
+  }
+
+  #dotsContainer {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+  }
+
+  .dots {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    display: inline-block;
+    margin: 8px 2px;
+  }
+
+  .activeDot {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+</style>
