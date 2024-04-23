@@ -10,20 +10,23 @@
 
   let mm = gsap.matchMedia();
 
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".saks_container",
-      start: "top 90%",
-      end: "bottom end",
-      scrub: true,
-    },
+  mm.add("(max-width: 800px)", () => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".saks_container",
+        start: "top 90%",
+        end: "bottom end",
+        scrub: true,
+      },
+    });
+
+    tl.from(".saks_container", {
+      x: 200,
+      y: -100,
+      rotation: 30,
+    });
   });
 
-  tl.from(".saks_container", {
-    x: 200,
-    y: -100,
-    rotation: 30,
-  });
   //her laver vi en media quiry så vi kan have sakea animationen så den er lille og animationen er mindre i mobil
   mm.add("(min-width: 800px)", () => {
     let tl = gsap.timeline({
